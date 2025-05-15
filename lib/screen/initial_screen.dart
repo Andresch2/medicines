@@ -10,7 +10,6 @@ class InitialScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final authController = Get.find<AuthController>();
 
-    // No se debe llamar async directo en build, así que usamos addPostFrameCallback
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _checkAuth(authController);
     });

@@ -14,6 +14,12 @@ class DailySummaryScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Resumen Diario'),
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.back();
+          },
+        ),
       ),
       body: Obx(() {
         final today = DateTime.now();
@@ -73,6 +79,8 @@ class DailySummaryScreen extends StatelessWidget {
                   medication.status = 'tomado';
                   medicationController.updateMedicationStatus(medication.id, 'tomado');
                   Get.snackbar('¡Listo!', 'Medicamento marcado como tomado');
+                } else {
+                  Get.snackbar('Info', 'Este medicamento ya fue tomado');
                 }
               },
             );
